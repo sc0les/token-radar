@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  UNLOADED example — do NOT `launchctl load` without operator approval.
+  Suggested cadence (when approved): StartInterval 1800 (30m) or 3600 (1h).
+  Copy to ~/Library/LaunchAgents/ only after explicit approval.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.user.token-radar.once</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/env</string>
+    <string>node</string>
+    <string>/path/to/token-radar/bin/radar.js</string>
+    <string>once</string>
+    <string>--chains</string>
+    <string>robinhood,base,solana</string>
+    <string>--top</string>
+    <string>25</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/path/to/token-radar</string>
+  <key>StartInterval</key>
+  <integer>1800</integer>
+  <key>StandardOutPath</key>
+  <string>/path/to/token-radar/out/launchd-stdout.log</string>
+  <key>StandardErrorPath</key>
+  <string>/path/to/token-radar/out/launchd-stderr.log</string>
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>
